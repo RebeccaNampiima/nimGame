@@ -1,0 +1,71 @@
+let myButton = document.getElementById("start");
+let playerOne;
+let playerTwo;
+let numOfSticks = 21;
+let counter = 0;
+
+myButton.addEventListener("click", function () {
+
+    playerOne = document.getElementById("p1Name").value;
+    playerTwo = document.getElementById("p2Name").value;
+    if (playerOne != "" && playerTwo != "") {
+        let gamePart = document.querySelector(".gamePart");
+        let myForm = document.querySelector("form");
+        gamePart.style.display = "block";
+        myForm.style.display = "none";
+
+
+        playTheGame();
+
+
+
+    }
+    else {
+        alert("You should enter your names..");
+    }
+
+});
+let yourPick = 0;
+function playTheGame() {
+
+    if (counter % 2 == 0) {
+        alert("This is " + playerOne + "'s Turn");
+    }
+    else
+        alert("This is " + playerTwo + "'s Turn");
+}
+
+let allSticks = document.querySelectorAll(".stick");
+for (let i = 0; i < allSticks.length; i++) {
+
+    allSticks[i].addEventListener("click", function () {
+        console.log(yourPick);
+        if (yourPick != 3) {
+            if (numOfSticks == 2) {
+                allSticks[i].style.display = "none";
+                if (counter % 2 == 0)
+                    alert( playerTwo + " Wins");
+                else
+                alert( playerOne + " Wins");
+            }
+            else {
+                allSticks[i].style.display = "none";
+                yourPick++;
+                numOfSticks--;
+            }
+        }
+        else
+            alert("You can't pick more than 3..");
+    });
+}
+
+let endTurn = document.querySelector(".box button");
+endTurn.addEventListener("click", function () {
+    if (yourPick != 0) {
+        counter++;
+        yourPick = 0;
+        playTheGame();
+    }
+    else
+        alert("please choose one stick at least..");
+});

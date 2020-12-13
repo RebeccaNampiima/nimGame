@@ -1,0 +1,35 @@
+.box {
+	background-color: turquoise;
+	min-width: 350px;
+	min-height: 350px;
+	display: none;
+}
+.sticks {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+.stick {
+	height: 50px;
+	width: 20px;
+	background-color: black;
+	cursor: pointer;
+	clip-path: polygon(53% 0, 0% 100%, 100% 100%); /* changes form of an element*/
+}
+.winnerClass {
+	display: none;
+	background-color: rgb(131, 125, 38);
+	min-width: 350px;
+	min-height: 350px;
+	font-size: 50px;
+	color: white;
+	border-radius: 10px;
+}
+.heading {
+	text-align: center;
+	margin: auto;
+	color: blueviolet;
+	margin-top: 10px;
+	font-family: "Lobster", cursive;
+}
